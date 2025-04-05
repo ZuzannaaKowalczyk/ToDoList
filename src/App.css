@@ -1,38 +1,154 @@
+/* Reset i tło */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f0f2f5;
+}
+
+/* Wyśrodkowanie tylko w poziomie + padding góra/dół */
+body {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  box-sizing: border-box;
+}
+
+/* Główna karta aplikacji */
 .App {
+  width: 900px;
+  background-color: #f9f9f9;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Nagłówek */
+.App h1 {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Układ poziomy: formularz + lista */
+.main-layout {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Kontener dla formularza jako karta */
+.form-wrapper {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Formularz */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Styl formularza wewnątrz */
+.task-form form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Inputy i selecty */
+.task-form input,
+.task-form select {
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Przycisk */
+.task-form button {
+  padding: 0.75rem 1rem;
+  background-color: rgb(170, 0, 255);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.task-form button:hover {
+  background-color: #d900ff;
+}
+
+/* Radio group */
+.radio-group {
+  display: flex;
+  gap: 1rem;
+  flex-direction: row;
+  margin-top: 0.5rem;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+/* Lista zadań */
+.task-list {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.task-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.task-list li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    transform: rotate(360deg);
+
+  .form-wrapper,
+  .task-list {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .task-form form,
+  .task-list ul {
+    width: 100%;
   }
 }
